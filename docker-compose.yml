@@ -1,0 +1,57 @@
+version: "3.7"
+
+services:
+    # image project
+    app:
+        container_name: only-escorts-app
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: ntsistemasw/onlyescorts-app
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - redis
+        networks:
+            - only-escorts
+
+    # nginx
+    nginx:
+        container_name: only-escorts-nginx
+        image: nginx:alpine
+        restart: unless-stopped
+        ports:
+            - "8989:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/:/etc/nginx/conf.d/
+        networks:
+            - only-escorts
+
+
+    # queue
+    queue:
+        container_name: only-escorts-queue
+        image: ntsistemasw/onlyescorts-app
+        restart: unless-stopped
+        command: "php artisan queue:work"
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - redis
+            - app
+        networks:
+            - only-escorts
+
+    # redis
+    redis:
+        container_name: only-escorts-redis
+        image: redis:latest
+        networks:
+            - only-escorts
+
+networks:
+    only-escorts:
+        driver: bridge
