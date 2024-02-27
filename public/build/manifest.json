@@ -1,0 +1,43 @@
+{
+  "public/dist/images/close.png": {
+    "file": "assets/close-3ibo5ueZ.png",
+    "src": "public/dist/images/close.png"
+  },
+  "public/dist/images/loading.gif": {
+    "file": "assets/loading-WP_hRmif.gif",
+    "src": "public/dist/images/loading.gif"
+  },
+  "public/dist/images/next.png": {
+    "file": "assets/next-EFXDbXTY.png",
+    "src": "public/dist/images/next.png"
+  },
+  "public/dist/images/prev.png": {
+    "file": "assets/prev-VR6g7K5G.png",
+    "src": "public/dist/images/prev.png"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-qBOsVjCj.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/css/lightbox.css": {
+    "file": "assets/lightbox-vpKwUkC7.css",
+    "isEntry": true,
+    "src": "resources/css/lightbox.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-p_jhmX-d.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/lightbox-plus-jquery.js": {
+    "file": "assets/lightbox-plus-jquery--ckt8Q8_.js",
+    "isEntry": true,
+    "src": "resources/js/lightbox-plus-jquery.js"
+  },
+  "resources/js/lightbox.js": {
+    "file": "assets/lightbox-M9KgaW0Q.js",
+    "isEntry": true,
+    "src": "resources/js/lightbox.js"
+  }
+}
