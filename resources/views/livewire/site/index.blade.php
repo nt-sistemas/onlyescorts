@@ -23,7 +23,7 @@
                     <div>
                         <div class="flex flex-wrap flex-row gap-2">
                             @foreach($maleCity as $city)
-                                <a href="#">
+                                <a href="#" wire:click="getProfileList('{{$city['city']}}')">
                                     <x-badge class="font-bold italic text-primary" :value="$city['city']"/>
                                 </a>
                             @endforeach
@@ -43,7 +43,7 @@
                     <div>
                         <div class="flex flex-wrap flex-row gap-2">
                             @foreach($femaleCity as $city)
-                                <a href="#">
+                                <a href="#" wire:click="getProfileList('{{$city['city']}}')">
                                     <x-badge class="font-bold italic text-primary" :value="$city['city']"/>
                                 </a>
                             @endforeach
