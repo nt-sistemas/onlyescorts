@@ -2,8 +2,8 @@
 
     <main class="flex flex-col items-center gap-12 p-8">
         <div class="flex flex-col items-center gap-2">
-            <h1 class="text-2xl lg:text-6xl">Encontre Acompanhantes</h1>
-            <img class="w-2/3" src="{{ Vite::asset('resources/assets/images/logo.svg') }}"/>
+
+            <img class="w-2/3" src="{{asset('assets/images/logo.svg')}}" alt="logo"/>
         </div>
         <span class="w-full lg:w-1/3">
             <x-input
@@ -78,7 +78,7 @@
     <x-modal wire:model="myModal" title="CONTEÚDO ADULTO" separator>
         <div class="flex w-full flex-col justify-center">
             <div class="flex flex-col items-center">
-                <img class="w-32" src="{{ Vite::asset('resources/assets/images/icon.svg') }}"/>
+                <img class="w-32" src="{{ asset('assets/images/icon.svg') }}"/>
             </div>
 
             <div>

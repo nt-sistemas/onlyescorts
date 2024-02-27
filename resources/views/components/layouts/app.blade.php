@@ -44,7 +44,7 @@
 
             {{-- BRAND --}}
             <div class="flex h-24 flex-col items-center gap-3 p-3">
-                <img class="w-24" src="{{ Vite::asset('resources/assets/images/icon.svg') }}" />
+                <img class="w-24" src="{{ asset('assets/images/icon.svg') }}" />
             </div>
 
             {{-- MENU --}}
