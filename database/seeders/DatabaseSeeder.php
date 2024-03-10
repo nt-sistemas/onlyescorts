@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
 use App\Models\Image;
 use App\Models\Profile;
 use App\Models\User;
@@ -21,14 +22,29 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'test@example.com',
-         ]);
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+
+        Category::factory()->count(4)->sequence(
+            [
+                'category' => 'MEN'
+            ],
+            [
+                'category' => 'WOMEN'
+            ],
+            [
+                'category' => 'COUPLE'
+            ],
+            [
+                'category' => 'BISEXUAL'
+            ],
+        )->create();
 
         User::factory(1000)->create()
-            ->each(function($u) {
-        $u->profile()->save(Profile::factory()->create(['user_id' => $u->id]));
-    });
+            ->each(function ($u) {
+                $u->profile()->save(Profile::factory()->create(['user_id' => $u->id]));
+            });
 
         $users = User::all();
 
@@ -50,8 +66,8 @@ class DatabaseSeeder extends Seeder
             'only-escorts/images/image-15.png',
         ];
 
-        foreach ($users as $user){
-            foreach ($images as $image){
+        foreach ($users as $user) {
+            foreach ($images as $image) {
                 Image::factory()->create([
                     'user_id' => $user->id,
                     'path' => $image

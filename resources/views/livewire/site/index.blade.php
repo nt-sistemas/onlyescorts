@@ -12,67 +12,19 @@
         </span>
 
         <div class="flex flex-col lg:flex-row w-full gap-8">
-            <div class="flex lg:w-1/3 flex-col items-center h-6/12 ">
-                <div
-                    class="border-5 flex h-full w-full flex-col items-center rounded-br-3xl rounded-tl-3xl border-primary bg-secondary p-8 shadow-xl">
-
-                    <div>
-                        <x-bi-gender-male class="h-16 w-16"/>
-                        Male
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap flex-row gap-2">
-                            @foreach($maleCity as $city)
-                                <a href="#" wire:click="getProfileList('{{$city['city']}}')">
-                                    <x-badge class="font-bold italic text-primary" :value="$city['city']"/>
-                                </a>
-                            @endforeach
+            @foreach($cateogies as $category)
+                <div class="w-full">
+                    <a wire:click="getProfileList('{{$category->id}}')" href="#">
+                        <div
+                            class="border-5 flex flex-col items-center rounded-br-3xl rounded-tl-3xl border-primary bg-secondary p-8 shadow-xl">
+                            <span class="font-black italic text-white">{{$category->category}}</span>
                         </div>
-
-                    </div>
+                    </a>
                 </div>
-            </div>
-            <div class="flex lg:w-1/3 flex-col items-center h-6/12 ">
-                <div
-                    class="border-5 flex h-full w-full flex-col items-center rounded-br-3xl rounded-tl-3xl border-primary bg-secondary p-8 shadow-xl">
+            @endforeach
 
-                    <div>
-                        <x-bi-gender-female class="h-16 w-16"/>
-                        Female
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap flex-row gap-2">
-                            @foreach($femaleCity as $city)
-                                <a href="#" wire:click="getProfileList('{{$city['city']}}')">
-                                    <x-badge class="font-bold italic text-primary" :value="$city['city']"/>
-                                </a>
-                            @endforeach
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="flex lg:w-1/3 flex-col items-center h-6/12 ">
-                <div
-                    class="border-5 flex h-full w-full flex-col items-center rounded-br-3xl rounded-tl-3xl border-primary bg-secondary p-8 shadow-xl">
-
-                    <div>
-                        <x-bi-gender-trans class="h-16 w-16"/>
-                        Trans
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap flex-row gap-2">
-                            @foreach($transCity as $city)
-                                <a href="#" wire:click="getProfileList('{{$city['city']}}')">
-                                    <x-badge class="font-bold italic text-primary" :value="$city['city']"/>
-                                </a>
-                            @endforeach
-                        </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
+
     </main>
 
     <x-modal wire:model="myModal" title="CONTEÚDO ADULTO" separator>
@@ -82,12 +34,13 @@
             </div>
 
             <div>
-                <p>Entendo que o site Fatal Modelapresenta conteúdo explícito
-                    destinado a adultos.</p><br>
-                <span><a href="#" class="font-bold text-primary">Termos de uso</a></span><br><br>
+                <p class="text-center p-8">I understand that the Onlye Escorts Intim website contains explicit content
+                    intended for adults.</p><br>
+                <span><a href="#" class="font-bold text-primary">Terms of Use</a></span><br><br>
 
-                <span class="font-bold">AVISO DE COOKIES</span>
-                <p>Nós usamos cookies e outras tecnologias semelhantes para melhorar a sua experiência em nosso site.
+                <span class="font-bold">NOTICE COOKIES</span>
+                <p>
+                    We use cookies and other similar technologies to improve your experience on our website.
                 </p>
             </div>
         </div>

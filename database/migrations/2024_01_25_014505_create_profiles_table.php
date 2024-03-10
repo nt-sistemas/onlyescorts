@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('gender');
+            $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('user_id')->constrained( 'users')->onDelete('cascade');
             $table->text('about_me')->nullable();
             $table->string('avatar')->nullable();
