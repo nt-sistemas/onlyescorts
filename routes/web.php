@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Index::class);
-Route::get('/profile-list/{city}', ProfileList::class)->name('profile-list');
+Route::get('/profile-list/{category}', ProfileList::class)->name('profile-list');
 Route::get('/profile/{slug}', \App\Livewire\Site\Profile::class)->name('site.profile');
 
 Route::get('/login', Login::class)->name('login');

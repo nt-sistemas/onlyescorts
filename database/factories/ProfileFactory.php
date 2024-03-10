@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Faker\Generator;
 use Faker\Provider\pt_PT\Address;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -42,12 +43,15 @@ class ProfileFactory extends Factory
         ];
         $name = fake()->name();
 
+        $category = Category::query()->select('id')->get();
+
         return [
             'name' => $name,
             'about_me' => fake()->text(1024),
             'phone' => fake()->phoneNumber(),
             'birth' => fake()->dateTimeBetween('-50 years','-18 years'),
             'gender' => fake()->randomElement(['male','female','trans']),
+            'category_id' => fake()->randomElement($category),
             'city' => $faker->city,
             'avatar' => fake()->randomElement($avatar),
             'slide' => fake()->randomElement($slide),

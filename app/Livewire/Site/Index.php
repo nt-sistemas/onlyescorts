@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Site;
 
+use App\Models\Category;
 use App\Models\Profile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -19,10 +20,14 @@ class Index extends Component
 
     public $transCity =  null;
 
+    public $cateogies = null;
+
     #[Computed()]
     public function mount()
     {
         $this->myModal = true;
+
+        $this->cateogies = Category::all();
 
         $this->maleCity = Profile::select(['city','country', DB::raw("count(id) as profile")])
             ->where('gender','male')
@@ -55,8 +60,8 @@ class Index extends Component
     }
 
     #[Layout('components.layouts.site')]
-    public function getProfileList($city ): void
+    public function getProfileList($category ): void
     {
-       $this->redirectRoute('profile-list',['city' => $city]);
+       $this->redirectRoute('profile-list',['category'=>$category]);
     }
 }

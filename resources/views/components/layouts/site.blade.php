@@ -21,7 +21,7 @@
     </a>
     <span
         class="flex w-48 justify-center p-4 font-bold text-primary hover:rounded-xl hover:bg-primary hover:text-secondary">
-            Cadastrar-se grátis
+            Free Sign In
         </span>
 </header>
 {{ $slot }}
