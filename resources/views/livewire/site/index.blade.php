@@ -5,11 +5,6 @@
 
             <img class="w-2/3" src="{{asset('assets/images/logo.svg')}}" alt="logo"/>
         </div>
-        <span class="w-full lg:w-1/3">
-            <x-input
-                class="w-full rounded-none rounded-bl-3xl rounded-tr-3xl border-0 bg-gray-200 text-center shadow-lg"
-                placeholder="Digite o nome da Cidade" icon="m-magnifying-glass"/>
-        </span>
 
         <div class="flex flex-col lg:flex-row w-full gap-8">
             @foreach($cateogies as $category)

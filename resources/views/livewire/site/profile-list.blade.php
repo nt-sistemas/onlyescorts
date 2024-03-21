@@ -7,11 +7,20 @@
 
 
     <div class="flex flex-col items-center">
+         <span class="w-full lg:w-1/3 mb-8">
+            <x-input
+                class="w-full rounded-none rounded-bl-3xl rounded-tr-3xl border-0 bg-gray-200 text-center shadow-lg"
+                placeholder="Enter a word to search" icon="m-magnifying-glass"/>
+        </span>
         <h1 class="text-2xl text-primary font-black">Cities</h1>
         <div class="w-2/3 flex flex-row flex-wrap gap-2 justify-center">
             @foreach($cities as $city)
                 <a href="#" wire:click="getProfileCity('{{$category['id']}}','{{$city->city}}')">
-                    <x-badge class="badge-primary" value="{{$city->city}}"/>
+                    <x-button class="bg-secondary">
+                        {{$city->city}}
+                        <x-badge class="badge-primary rounded-full font-bold text-white p-4" value="{{$city->profile}}"/>
+                    </x-button>
+
                 </a>
             @endforeach
         </div>
@@ -46,7 +55,14 @@
                         <x-icon name="s-sparkles" label="{{$row->gender}}" class="capitalize"/>
                         <x-icon name="s-map-pin" label="{{$row->city}}"/>
                         <x-icon name="s-globe-europe-africa" label="{{$row->country}}"/>
+                        <div class="rounded-lg bg-primary flex flex-row p-2 gap-8 w-1/3 justify-center">
+                            <a href=""><img src="{{asset('assets/icons/whats.svg')}}" class="h-6 w-6"/></a>
+                            <a href=""><img src="{{asset('assets/icons/instagram.svg')}}" class="h-6 w-6"/></a>
+                            <a href=""><img src="{{asset('assets/icons/facebook.svg')}}" class="h-6 w-6"/></a>
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
