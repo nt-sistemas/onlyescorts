@@ -56,9 +56,9 @@
                         <x-icon name="s-map-pin" label="{{$row->city}}"/>
                         <x-icon name="s-globe-europe-africa" label="{{$row->country}}"/>
                         <div class="rounded-tl-xl rounded-br-xl bg-primary flex flex-row p-2 gap-8 lg:w-1/3 justify-center">
-                            <a href=""><img src="{{asset('assets/icons/whats.svg')}}" class="h-6 w-6"/></a>
-                            <a href=""><img src="{{asset('assets/icons/instagram.svg')}}" class="h-6 w-6"/></a>
-                            <a href=""><img src="{{asset('assets/icons/facebook.svg')}}" class="h-6 w-6"/></a>
+                            <a href="#"><img src="{{asset('assets/icons/whats.svg')}}" class="h-6 w-6"/></a>
+                            <a href="#"><img src="{{asset('assets/icons/instagram.svg')}}" class="h-6 w-6"/></a>
+                            <a href="#"><img src="{{asset('assets/icons/facebook.svg')}}" class="h-6 w-6"/></a>
                         </div>
 
                     </div>
