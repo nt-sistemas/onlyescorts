@@ -60,7 +60,6 @@
                             <a href="#"><img src="{{asset('assets/icons/instagram.svg')}}" class="h-6 w-6"/></a>
                             <a href="#"><img src="{{asset('assets/icons/facebook.svg')}}" class="h-6 w-6"/></a>
                         </div>
-
                     </div>
 
                 </div>

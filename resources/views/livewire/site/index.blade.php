@@ -42,7 +42,7 @@
 
         <x-slot:actions>
             <div class="flex w-full flex-col items-center">
-                <x-button label="Concordo" class="btn-primary" @click="$wire.myModal = false"/>
+                <x-button label="I Agree" class="btn-primary" @click="$wire.myModal = false"/>
             </div>
 
         </x-slot:actions>
