@@ -25,6 +25,12 @@
             Free Register
         </span>
     </a>
+    <a href="/" wire:navigate>
+    <span
+        class="flex w-48 justify-center p-4 font-bold hover:rounded-xl hover:bg-primary hover:text-secondary">
+            Home
+        </span>
+    </a>
 </header>
 {{ $slot }}
 
