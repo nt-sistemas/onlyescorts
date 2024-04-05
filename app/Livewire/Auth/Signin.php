@@ -42,9 +42,8 @@ class Signin extends Component
         $years = intval($date->diffInYears(Carbon::parse($this->birth)));
 
 
-        if($years < 18)
-        {
-            $this->addError('invalidCredentials', 'You must be of legal age to register' );
+        if($years < 18) {
+            $this->addError('invalidCredentials', 'You must be of legal age to register');
             return;
         }
 

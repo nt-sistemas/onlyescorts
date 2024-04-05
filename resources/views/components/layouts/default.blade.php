@@ -12,26 +12,6 @@
 </head>
 
 <body class="min-h-screen min-w-[350px] font-sans antialiased site_body">
-<header class="flex h-16 flex-row-reverse items-center gap-3 bg-secondary p-8">
-    <a href="{{route('login')}}" wire:navigate>
-            <span
-                class="flex w-36 justify-center p-4 font-bold hover:rounded-xl hover:bg-primary hover:text-secondary">
-                Login
-            </span>
-    </a>
-    <a href="{{route('site.register')}}" wire:navigate>
-    <span
-        class="flex w-48 justify-center p-4 font-bold text-primary hover:rounded-xl hover:bg-primary hover:text-secondary">
-            Free Register
-        </span>
-    </a>
-    <a href="/" wire:navigate>
-    <span
-        class="flex w-48 justify-center p-4 font-bold hover:rounded-xl hover:bg-primary hover:text-secondary">
-            Home
-        </span>
-    </a>
-</header>
 {{ $slot }}
 
 <script src="{{ asset('dist/js/lightbox-plus-jquery.min.js') }}"></script>

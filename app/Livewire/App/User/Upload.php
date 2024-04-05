@@ -17,7 +17,8 @@ use Mary\Traits\WithMediaSync;
 
 class Upload extends Component
 {
-    use WithFileUploads, WithMediaSync;
+    use WithFileUploads;
+    use WithMediaSync;
 
     #[Validate(['files.*' => 'max:12288'])]
     public $files = [];
@@ -27,9 +28,9 @@ class Upload extends Component
     #[Computed]
     public function mount(): void
     {
-        $images = Image::query()->where('user_id',auth()->user()->id)->get();
+        $images = Image::query()->where('user_id', auth()->user()->id)->get();
 
-        foreach ($images as $image){
+        foreach ($images as $image) {
             $dados = [];
 
             $dados['id'] = $image->id;
@@ -61,7 +62,7 @@ class Upload extends Component
             );
         }
 
-       redirect(route('uploads'));
+        redirect(route('uploads'));
 
 
     }

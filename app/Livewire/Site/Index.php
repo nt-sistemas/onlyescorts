@@ -30,23 +30,23 @@ class Index extends Component
         $this->cateogies = Category::all();
 
         $this->maleCity = Profile::select(['city','country', DB::raw("count(id) as profile")])
-            ->where('gender','male')
-            ->groupBy('city','country')
-            ->orderBy('profile','DESC')
+            ->where('gender', 'male')
+            ->groupBy('city', 'country')
+            ->orderBy('profile', 'DESC')
             ->limit(20)
         ->get();
 
         $this->femaleCity = Profile::select(['city','country', DB::raw("count(id) as profile")])
-            ->where('gender','female')
-            ->groupBy('city','country')
-            ->orderBy('profile','DESC')
+            ->where('gender', 'female')
+            ->groupBy('city', 'country')
+            ->orderBy('profile', 'DESC')
             ->limit(20)
             ->get();
 
         $this->transCity = Profile::select(['city','country', DB::raw("count(id) as profile")])
-            ->where('gender','trans')
-            ->groupBy('city','country')
-            ->orderBy('profile','DESC')
+            ->where('gender', 'trans')
+            ->groupBy('city', 'country')
+            ->orderBy('profile', 'DESC')
             ->limit(20)
             ->get();
 
@@ -60,8 +60,8 @@ class Index extends Component
     }
 
     #[Layout('components.layouts.site')]
-    public function getProfileList($category ): void
+    public function getProfileList($category): void
     {
-       $this->redirectRoute('profile-list',['category'=>$category]);
+        $this->redirectRoute('profile-list', ['category' => $category]);
     }
 }

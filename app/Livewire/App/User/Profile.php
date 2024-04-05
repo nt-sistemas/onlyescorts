@@ -2,13 +2,13 @@
 
 namespace App\Livewire\App\User;
 
-
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Illuminate\Support\Collection;
 use Livewire\WithFileUploads;
+
 use function PHPUnit\Framework\isEmpty;
 
 class Profile extends Component
@@ -72,7 +72,7 @@ class Profile extends Component
             }
             $profile->update($data);
             redirect(route('profile'));
-        }else{
+        } else {
             $user->profile()->create($data);
             redirect(route('profile'));
         }

@@ -1,9 +1,8 @@
 <div class="flex flex-col p-2 lg:p-8">
-    @if($city)
-        <x-header :title="$city" subtitle="Your City searched" size="text-xl" separator/>
-    @else
+  <div class="flex flex-col w-full bg-white/70 p-4 shadow-lg">
         <x-header :title="$category['category']" subtitle="Your category searched" size="text-xl" separator/>
-    @endif
+
+
 
 
     <div class="flex flex-col items-center">
@@ -13,20 +12,19 @@
                 placeholder="Enter a word to search" icon="m-magnifying-glass"/>
         </span>
         <h1 class="text-2xl text-primary font-black">Cities</h1>
-        <div class="w-2/3 flex flex-row flex-wrap gap-2 justify-center">
+        <ul class="list_column">
             @foreach($cities as $city)
+              <li>
                 <a href="#" wire:click="getProfileCity('{{$category['id']}}','{{$city->city}}')">
-                    <x-button class="bg-secondary">
-                        {{$city->city}}
-                        <x-badge class="badge-primary rounded-full font-bold text-white p-4" value="{{$city->profile}}"/>
-                    </x-button>
-
+                  {{$city->city}}
+                  <span class="font-bold">({{$city->profile}})</span>
                 </a>
-            @endforeach
-        </div>
-    </div>
-    <x-menu-separator/>
+              </li>
 
+            @endforeach
+        </ul>
+    </div>
+  </div>
 
     <div class="flex flex-col items-center gap-4 lg:p-8 w-full">
         @foreach($list as $row)
@@ -49,7 +47,7 @@
                 <div class="w-3/4 flex flex-col gap-2">
                     <a class="hover:text-primary link" wire:click="getProfile('{{$row->slug}}')"><span
                             class=" text-lg lg:text-3xl font-bold">{{$row->name}}</span></a>
-                    <p class="text-lg hidden md:block lg:block  italic">{{$row->about_me}}</p>
+                    <p class="text-lg hidden md:block lg:block  italic">{{Str::limit($row->about_me,300, $end='...')}}</p>
                     <div class="flex flex-col lg:flex-row justify-between">
                         <x-icon name="s-calendar" label="{{\Carbon\Carbon::parse($row->birth)->age}} Years"/>
                         <x-icon name="s-sparkles" label="{{$row->gender}}" class="capitalize"/>

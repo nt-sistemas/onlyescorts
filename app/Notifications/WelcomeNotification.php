@@ -34,7 +34,7 @@ class WelcomeNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->line('Welcome to Only Escorts Intim! Happy to see you here.')
             ->line('Thank you for using our platform!');
     }

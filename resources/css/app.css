@@ -2,3 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .site_body {
+    background-attachment: fixed;
+    background-image: url('../assets/images/_texture.svg');
+    background-size: 5% 5%;
+    background-repeat: space;
+    @apply bg-white
+  }
+
+  .list_column{
+    -moz-column-count: 4;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 20px;
+    column-count: 4;
+    column-gap: 20px;
+  }
+}
+

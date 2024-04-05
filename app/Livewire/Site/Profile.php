@@ -7,7 +7,6 @@ use Illuminate\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-
 class Profile extends Component
 {
     public $profile = null;
@@ -17,15 +16,15 @@ class Profile extends Component
     {
 
         $this->profile = \App\Models\Profile::query()
-            ->where('slug', $slug,)
+            ->where('slug', $slug, )
             ->first();
 
-        $this->images= Image::query()
-            ->where('user_id',$this->profile->user_id)
+        $this->images = Image::query()
+            ->where('user_id', $this->profile->user_id)
             ->get();
     }
 
-    #[Layout('components.layouts.site')]
+    #[Layout('components.layouts.default')]
     public function render(): View
     {
         return view('livewire.site.profile');

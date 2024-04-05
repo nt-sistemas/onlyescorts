@@ -15,8 +15,12 @@
     "file": "assets/prev-VR6g7K5G.png",
     "src": "public/dist/images/prev.png"
   },
+  "resources/assets/images/_texture.svg": {
+    "file": "assets/_texture-juZFjA0n.svg",
+    "src": "resources/assets/images/_texture.svg"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-PBa7GtQ4.css",
+    "file": "assets/app-1GaWxR6P.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },

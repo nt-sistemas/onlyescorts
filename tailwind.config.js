@@ -18,13 +18,34 @@ export default {
   daisyui: {
     themes: [
         {
-            onlytheme: {
+            onlytheme1: {
                 "primary": "#C87D83",
                 "secondary": "#EABFBF",
                 "accent": "#37cdbe",
                 "neutral": "#3d4451",
                 "base-100": "#ffffff",
             },
+          onlytheme2: {
+            "primary": "#5D1222",
+            "secondary": "#7C223A",
+            "accent": "#37cdbe",
+            "neutral": "#3d4451",
+            "base-100": "#ffffff",
+          },
+          onlytheme3: {
+            "primary": "#C87D83",
+            "secondary": "#EABFBF",
+            "accent": "#37cdbe",
+            "neutral": "#3d4451",
+            "base-100": "#ffffff",
+          },
+          onlytheme4: {
+            "primary": "#C87D83",
+            "secondary": "#EABFBF",
+            "accent": "#37cdbe",
+            "neutral": "#3d4451",
+            "base-100": "#ffffff",
+          },
         },
         "dark",
         "cupcake",

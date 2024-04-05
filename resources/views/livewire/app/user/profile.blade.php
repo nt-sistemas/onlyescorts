@@ -42,12 +42,14 @@
             <div class="w-full flex flex-col gap-1">
                 <label class="font-bold text-sm">Avatar</label>
                 <input
+                    placeholder="Select your image for upload"
                     class=" bg-white border border-primary focus:outline-primary focus:outline-offset-4 border-1 p-2 rounded-md "
                     type="file" wire:model="avatar"/>
             </div>
             <div class="w-full flex flex-col gap-1">
                 <label class="font-bold text-sm">Slide</label>
                 <input
+                    placeholder="Select your image for upload"
                     class=" bg-white border border-primary focus:outline-primary focus:outline-offset-4 border-1 p-2 rounded-md "
                     type="file" wire:model="slide"/>
             </div>
