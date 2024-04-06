@@ -16,9 +16,9 @@
       <ul class="list_column">
         @foreach($cities as $city)
           <li>
-            <a href="#" wire:click="getProfileCity('{{$city->city}}')">
+            <a class="text-xs" href="#" wire:click="getProfileCity('{{$city->city}}')">
               {{$city->city}}
-              <span class="font-bold">({{$city->profile}})</span>
+              <span class="font-bold text-xs">({{$city->profile}})</span>
             </a>
           </li>
 
