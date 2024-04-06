@@ -27,7 +27,7 @@
                 </div>
               </div>
               <div class="w-full lg:w-1/3 lg:justify-center h-full flex flex-col p-2 lg:p-4 rounded-tl-3xl rounded-br-3xl gap-4 ">
-                <div class=" flex items-center justify-between text-bold text-xl gap-8 lg:p-8 lg:justify-center w-full">
+                <div class=" flex items-center justify-between text-bold text-xl gap-4 lg:p-8 lg:justify-center w-full">
                   <x-button class="link" tooltip="Send Message for Whatsapp">
                     <img src="{{asset('assets/icons/whats.svg')}}" class="h-10 w-10"/>
                   </x-button>
