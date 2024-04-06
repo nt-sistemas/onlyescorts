@@ -1,48 +1,41 @@
-<div class="h-screen flex flex-col w-full bg-gray-200 lg:p-6 lg:gap-8 ">
-    <div class="relative min-h-96 w- bg-white rounded-tl-3xl rounded-br-3xl shadow-lg p-4">
-        <div class="flex flex-col items-center">
-            <div class="w-full">
+<div class="h-screen flex flex-col w-full bg-gray-200 gap-4 p-4 lg:p-6 lg:gap-8 ">
+    <div class="min-h-96 bg-white rounded-tl-3xl rounded-br-3xl shadow-lg p-4">
+        <div class="flex h-full flex-col  items-center rounded-tl-3xl rounded-br-3xl">
+            <div class="w-full invisible lg:visible">
                 <a href="{{URL::asset(Storage::url($profile->slide))}}" data-lightbox="Capa"
                    data-title="{{$profile->name}}">
-                    <img class="object-cover w-full h-48" src="{{URL::asset(Storage::url($profile->slide))}}"
+                    <img class="object-cover w-full rounded-tl-3xl rounded-br-3xl h-48" src="{{URL::asset(Storage::url($profile->slide))}}"
                          alt="{{$profile->slug}}"/>
                 </a>
             </div>
-            <div class="w-full flex flex-row ">
-                <a class="" href="{{URL::asset(Storage::url($profile->avatar))}}" data-lightbox="{{$profile->name}}"
+            <div class="w-full flex flex-row items-center justify-center lg:visible bg-amber-700">
+                <a class="w-full flex flex-row items-center justify-center" href="{{URL::asset(Storage::url($profile->avatar))}}" data-lightbox="{{$profile->name}}"
                    data-title="{{$profile->name}}">
-                    <img class=" absolute top-24 object-cover shadow-lg object-top rounded-full h-64 w-64"
+                    <img class=" absolute top-8 lg:top-24 object-cover shadow-lg object-top rounded-full h-48 w-48 lg:h-64 lg:w-64"
                          src="{{URL::asset(Storage::url($profile->avatar))}}"
                          alt="{{$profile->slug}}"/>
                 </a>
             </div>
-            <div class=" top-56 w-full p-4 flex flex-row items-center gap-8">
-                <div class="w-72 "></div>
-                <div class="w-full flex  flex-row p-4 gap-8">
-                    <div class="w-full flex flex-col">
-                        <span class="text-primary font-bold text-3xl">{{$profile->name}}</span>
-                        <span class="text-xl">{{\Carbon\Carbon::parse($profile->birth)->age}} Years</span>
-                        <div class="flex flex-row text-bold text-xl justify-start gap-8">
-                            <x-icon name="s-sparkles" label="{{$profile->gender}}" class="capitalize"/>
-                            <x-icon name="s-map-pin" label="{{$profile->city}}"/>
-                            <x-icon name="s-globe-europe-africa" label="{{$profile->country}}"/>
-                        </div>
-                    </div>
-                    <div class="w-full flex flex-col bg-secondary/50 p-4 rounded-tl-3xl rounded-br-3xl gap-4 ">
-                        <span class="font-bold text-lg text-center">Social Media</span>
-                        <div class="flex flex-row text-bold text-xl gap-8 justify-center">
-                            <div class="link">
-                              <img src="{{asset('assets/icons/whats.svg')}}" class="h-10 w-10"/>                            </div>
-                            <div class="link">
-                              <img src="{{asset('assets/icons/instagram.svg')}}" class="h-10 w-10"/>
-                            </div>
-                        </div>
-
-                    </div>
-
+            <div class=" top-56 w-full h-full p-4 flex flex-row items-center lg:gap-72">
+              <div class="w-full  flex flex-col ">
+                <span class="text-primary  font-bold text-lg lg:text-2xl">{{$profile->name}}</span>
+                <span class=" text-md lg:text-xl">{{\Carbon\Carbon::parse($profile->birth)->age}} Years</span>
+                <div class="flex flex-row text-bold text-sm lg:text-xl justify-start gap-4 lg:gap-8">
+                  <x-icon name="s-sparkles" label="{{$profile->gender}}" class="capitalize"/>
+                  <x-icon name="s-map-pin" label="{{$profile->city}}"/>
+                  <x-icon name="s-globe-europe-africa" label="{{$profile->country}}"/>
+                </div>
+              </div>
+              <div class="w-1/3 lg:w-1/5 lg:justify-center h-full flex flex-col lg:bg-secondary/50 p-2 lg:p-4 rounded-tl-3xl rounded-br-3xl gap-4 ">
+                <div class=" flex flex-col items-center lg:flex-row text-bold text-xl gap-8 lg:justify-center">
+                  <div class="link">
+                    <img src="{{asset('assets/icons/whats.svg')}}" class="h-10 w-10"/>                            </div>
+                  <div class="link">
+                    <img src="{{asset('assets/icons/instagram.svg')}}" class="h-10 w-10"/>
+                  </div>
                 </div>
 
-
+              </div>
             </div>
 
         </div>
