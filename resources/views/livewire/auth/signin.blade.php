@@ -1,12 +1,13 @@
-<div class="w-full flex flex-col justify-center items-center">
-    <x-card shadow class="mt-8 lg:w-1/3 lg:h-3/4 w-full m-2 bg-secondary rounded-bl-3xl rounded-tr-3xl">
-        <div class="flex flex-col items-center m-4">
+<div class="flex flex-col items-center justify-center w-full">
+    <x-card shadow class="w-full p-4 m-2 mt-8 shadow-lg bg-white/50 lg:w-1/3 lg:h-3/4 rounded-bl-3xl rounded-tr-3xl">
+        <div class="flex flex-col items-center gap-4 m-4">
             <img class="w-16" src="{{ asset('assets/images/icon.svg') }}" />
-            <span class="font-black text-xl">Register your Informations</span>
+            <span class="text-xl font-black">Register your Informations</span>
+            <span class="w-2/3 text-sm italic text-center text-primary">Your information such as name and date of birth must match the document</span>
         </div>
 
         @if($errors->has('invalidCredentials'))
-            <x-alert icon="o-exclamation-triangle" class="alert-error mb-4">
+            <x-alert icon="o-exclamation-triangle" class="mb-4 alert-error">
                 @error('invalidCredentials')
                 <span>{{ $message }}</span>
                 @enderror
