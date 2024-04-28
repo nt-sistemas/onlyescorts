@@ -7,7 +7,7 @@
             <span class="w-full mb-8 lg:w-1/3">
                 <x-input wire:model.live="search" wire:change="getSearch"
                     class="w-full text-center bg-gray-200 border-0 rounded-none shadow-lg rounded-bl-3xl rounded-tr-3xl"
-                    placeholder="Enter a word to search" icon="m-magnifying-glass" />
+                    placeholder="Enter a name or city to search" icon="m-magnifying-glass" />
             </span>
             <h1 class="text-2xl font-black text-primary">{{ $city ?? 'Cities' }}</h1>
 
