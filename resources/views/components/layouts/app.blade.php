@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="onlytheme">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="onlytheme2">
 
 <head>
     <meta charset="utf-8">
@@ -22,7 +22,7 @@
     @vite(['resources/css/app.css', 'resources/css/lightbox.css', 'resources/js/app.js', 'resources/js/lightbox.js', 'resources/js/lightbox-plus-jquery.js'])
 </head>
 
-<body class="min-h-screen bg-base-100/50 font-sans antialiased">
+<body class="min-h-screen font-sans antialiased bg-base-100/50">
 
     {{-- NAVBAR mobile only --}}
     <x-nav sticky class="lg:hidden">
@@ -43,12 +43,12 @@
         <x-slot:sidebar drawer="main-drawer" collapsible class="bg-secondary lg:bg-secondary">
 
             {{-- BRAND --}}
-            <div class="flex h-24 flex-col items-center gap-3 p-3">
-                <img class="w-24" src="{{ asset('assets/images/icon.svg') }}" />
+            <div class="flex flex-col items-center h-24 gap-3 p-3">
+                <img class="w-24" src="{{ asset('assets/images/logo.svg') }}" />
             </div>
 
             {{-- MENU --}}
-            <x-menu activate-by-route>
+            <x-menu class="text-white">
 
                 {{-- User --}}
                 @if ($user = auth()->user())
@@ -60,13 +60,11 @@
                     </x-list-item>
                 @endif
 
-                <x-menu-item title="Home" icon="o-sparkles" link="{{ route('main') }}" />
-                <x-menu-item title="Profile" icon="o-sparkles" link="{{ route('profile') }}" />
-                <x-menu-item title="Medias" icon="o-sparkles" link="{{ route('uploads') }}" />
-                <x-menu-sub title="Settings" icon="o-cog-6-tooth">
-                    <x-menu-item title="Wifi" icon="o-wifi" link="####" />
-                    <x-menu-item title="Archives" icon="o-archive-box" link="####" />
-                </x-menu-sub>
+                <x-menu-item title="Home" icon="s-home-modern" link="{{ route('main') }}" />
+                <x-menu-item title="Stories" icon="s-film" link="#" />
+                <x-menu-item title="Profile" icon="s-user-circle" link="{{ route('profile') }}" />
+                <x-menu-item title="Medias" icon="s-photo" link="{{ route('uploads') }}" />
+
             </x-menu>
         </x-slot:sidebar>
 

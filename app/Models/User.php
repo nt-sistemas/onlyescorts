@@ -55,7 +55,7 @@ class User extends Authenticatable
         return $this->hasMany(Image::class);
     }
 
-    public function profile(): HasOne
+    public function profile()
     {
         return $this->hasOne(Profile::class);
     }

@@ -108,6 +108,7 @@ class ProfileList extends Component
           '%' . strtolower($this->search) . '%')
       )
       ->where('category_id',$this->category->id)
+      ->limit(4)
       ->get();
   }
 

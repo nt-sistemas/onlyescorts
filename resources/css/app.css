@@ -5,13 +5,13 @@
 @layer components {
   .site_body {
     background-attachment: fixed;
-    background-image: url('../assets/images/_texture.svg');
+    background-image: url("../assets/images/_texture.svg");
     background-size: 5% 5%;
     background-repeat: space;
-    @apply bg-white
+    @apply bg-white;
   }
 
-  .list_column{
+  .list_column {
     -moz-column-count: 2;
     -moz-column-gap: 20px;
     -webkit-column-count: 2;
@@ -19,5 +19,36 @@
     column-count: 2;
     column-gap: 20px;
   }
+  .destaque img {
+    filter: grayscale(100%);
+    cursor: pointer;
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  @-webkit-keyframes slideInRight {
+    0% {
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+      visibility: visible;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideInRight {
+    0% {
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+      visibility: visible;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
 }
-

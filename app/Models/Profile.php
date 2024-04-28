@@ -13,7 +13,7 @@ class Profile extends Model
     protected $fillable = [ 'name','about_me','avatar','slide','slug','phone','birth','city','gender','country'];
 
 
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
