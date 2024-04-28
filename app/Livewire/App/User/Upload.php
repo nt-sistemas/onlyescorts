@@ -17,65 +17,61 @@ use Mary\Traits\WithMediaSync;
 
 class Upload extends Component
 {
-    use WithFileUploads;
-    use WithMediaSync;
+  use WithFileUploads;
 
-    #[Validate(['files.*' => 'max:12288'])]
-    public $files = [];
 
-    public $media = [];
+  #[Validate(['files.*' => 'max:200000'])]
+  public $files = [];
 
-    #[Computed]
-    public function mount(): void
-    {
-        $images = Image::query()->where('user_id', auth()->user()->id)->get();
+  public $media = [];
 
-        foreach ($images as $image) {
-            $dados = [];
+  #[Computed]
+  public function mount(): void
+  {
+    $images = Image::query()->where('user_id', auth()->user()->id)->get();
 
-            $dados['id'] = $image->id;
-            $dados['url'] = URL::asset(Storage::url($image->path));
-            $this->media[] = $dados;
+    foreach ($images as $image) {
+      $dados = [];
 
-        }
+      $dados['id'] = $image->id;
+      $dados['url'] = URL::asset(Storage::url($image->path));
+      $this->media[] = $dados;
+    }
+  }
 
+  public function render(): View
+  {
+    return view('livewire.app.user.upload');
+  }
+
+  public function save(): void
+  {
+    $user = auth()->user();
+
+    $this->validate([
+      'files.*' => 'required|max:200000',
+    ]);
+
+
+
+    foreach ($this->files as $photo) {
+      $user->images()->create(
+        [
+          'path' => $photo->store(path: auth()->user()->slug . '/media')
+        ]
+      );
     }
 
-    public function render(): View
-    {
-        return view('livewire.app.user.upload');
-    }
+    redirect(route('uploads'));
+  }
 
-    public function save(): void
-    {
-        $user = auth()->user();
+  public function delete($id)
+  {
+    $singleImage = Image::findOrFail($id);
+    Storage::delete($singleImage->path);
+    $singleImage->delete();
+    $this->reset('files');
 
-        $this->validate([
-            'files.*' => 'required|max:12288',
-        ]);
-
-        foreach ($this->files as $photo) {
-            $user->images()->create(
-                [
-                    'path' => $photo->store(path: auth()->user()->slug . '/media')
-                ]
-            );
-        }
-
-        redirect(route('uploads'));
-
-
-    }
-
-    public function delete($id)
-    {
-        $singleImage = Image::findOrFail($id);
-        Storage::delete($singleImage->path);
-        $singleImage->delete();
-        $this->reset('files');
-
-        redirect(route('uploads'));
-    }
-
-
+    redirect(route('uploads'));
+  }
 }

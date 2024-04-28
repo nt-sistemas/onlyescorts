@@ -29,7 +29,7 @@ class Index extends Component
   {
     $acceptTerm = Cookie::get('accepted');
 
-    $this->myModal = $acceptTerm;
+    $this->myModal = !$acceptTerm;
 
     $this->termUse = false;
 

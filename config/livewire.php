@@ -2,7 +2,7 @@
 
 return [
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | Class Namespace
     |---------------------------------------------------------------------------
@@ -13,9 +13,9 @@ return [
     |
     */
 
-    'class_namespace' => 'App\\Livewire',
+  'class_namespace' => 'App\\Livewire',
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | View Path
     |---------------------------------------------------------------------------
@@ -26,9 +26,9 @@ return [
     |
     */
 
-    'view_path' => resource_path('views/livewire'),
+  'view_path' => resource_path('views/livewire'),
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | Layout
     |---------------------------------------------------------------------------
@@ -38,9 +38,9 @@ return [
     |
     */
 
-    'layout' => 'components.layouts.app',
+  'layout' => 'components.layouts.app',
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | Lazy Loading Placeholder
     |---------------------------------------------------------------------------
@@ -50,9 +50,9 @@ return [
     |
     */
 
-    'lazy_placeholder' => null,
+  'lazy_placeholder' => null,
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | Temporary File Uploads
     |---------------------------------------------------------------------------
@@ -63,20 +63,20 @@ return [
     |
     */
 
-    'temporary_file_upload' => [
-        'disk' => 'public',        // Example: 'local', 's3'              | Default: 'default'
-        'rules' => ['file','mimes:png,jpg,jpeg','max:12288'],       // Example: ['file', 'mimes:png,jpg']  | Default: ['required', 'file', 'max:12288'] (12MB)
-        'directory' => 'livewire-tmp',   // Example: 'tmp'                      | Default: 'livewire-tmp'
-        'middleware' => null,  // Example: 'throttle:5,1'             | Default: 'throttle:60,1'
-        'preview_mimes' => [   // Supported file types for temporary pre-signed file URLs...
-            'png', 'gif', 'bmp', 'svg', 'wav', 'mp4',
-            'mov', 'avi', 'wmv', 'mp3', 'm4a',
-            'jpg', 'jpeg', 'mpga', 'webp', 'wma',
-        ],
-        'max_upload_time' => 5, // Max duration (in minutes) before an upload is invalidated...
+  'temporary_file_upload' => [
+    'disk' => 'public',        // Example: 'local', 's3'              | Default: 'default'
+    'rules' => ['file', 'mimes:png,jpg,jpeg,mp4', 'max:200000'],       // Example: ['file', 'mimes:png,jpg']  | Default: ['required', 'file', 'max:12288'] (12MB)
+    'directory' => 'livewire-tmp',   // Example: 'tmp'                      | Default: 'livewire-tmp'
+    'middleware' => null,  // Example: 'throttle:5,1'             | Default: 'throttle:60,1'
+    'preview_mimes' => [   // Supported file types for temporary pre-signed file URLs...
+      'png', 'gif', 'bmp', 'svg', 'wav', 'mp4',
+      'mov', 'avi', 'wmv', 'mp3', 'm4a',
+      'jpg', 'jpeg', 'mpga', 'webp', 'wma',
     ],
+    'max_upload_time' => 5, // Max duration (in minutes) before an upload is invalidated...
+  ],
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | Render On Redirect
     |---------------------------------------------------------------------------
@@ -87,9 +87,9 @@ return [
     |
     */
 
-    'render_on_redirect' => false,
+  'render_on_redirect' => false,
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | Eloquent Model Binding
     |---------------------------------------------------------------------------
@@ -100,9 +100,9 @@ return [
     |
     */
 
-    'legacy_model_binding' => false,
+  'legacy_model_binding' => false,
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | Auto-inject Frontend Assets
     |---------------------------------------------------------------------------
@@ -113,9 +113,9 @@ return [
     |
     */
 
-    'inject_assets' => true,
+  'inject_assets' => true,
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | Navigate (SPA mode)
     |---------------------------------------------------------------------------
@@ -126,12 +126,12 @@ return [
     |
     */
 
-    'navigate' => [
-        'show_progress_bar' => true,
-        'progress_bar_color' => '#2299dd',
-    ],
+  'navigate' => [
+    'show_progress_bar' => true,
+    'progress_bar_color' => '#2299dd',
+  ],
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | HTML Morph Markers
     |---------------------------------------------------------------------------
@@ -142,9 +142,9 @@ return [
     |
     */
 
-    'inject_morph_markers' => true,
+  'inject_morph_markers' => true,
 
-    /*
+  /*
     |---------------------------------------------------------------------------
     | Pagination Theme
     |---------------------------------------------------------------------------
@@ -155,5 +155,5 @@ return [
     |
     */
 
-    'pagination_theme' => 'tailwind',
+  'pagination_theme' => 'tailwind',
 ];
