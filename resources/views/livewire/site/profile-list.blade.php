@@ -1,6 +1,9 @@
 <div class="flex flex-col p-2 lg:p-8">
     <div class="flex flex-col w-full p-4 shadow-lg bg-white/70">
-        <x-header :title="$category['category']" subtitle="Your category searched" size="text-xl" separator />
+        <section>
+            @livewire('site.stories')
+        </section>
+
 
 
         <div class="flex flex-col items-center">
