@@ -11,6 +11,7 @@ use Illuminate\View\View;
 use JetBrains\PhpStorm\NoReturn;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
@@ -28,6 +29,8 @@ class ProfileList extends Component
 {
   use WithPagination;
 
+  public $storiesModal = true;
+
   public $category = null;
 
   public ?string $search = '';
@@ -42,6 +45,7 @@ class ProfileList extends Component
   {
     $this->category = $category;
 
+    $this->storiesModal = true;
     $this->category = Category::query()
       ->where('id', $category)
       ->first();
@@ -80,39 +84,38 @@ class ProfileList extends Component
   #[Computed]
   public function profiles(): Collection
   {
-    if($this->city){
+    if ($this->city) {
       return Profile::query()
         ->when(
           $this->search,
-          fn(Builder $q) => $q->where(
+          fn (Builder $q) => $q->where(
             DB::raw('lower(name)'),
             'like',
-            '%' . strtolower($this->search) . '%')
+            '%' . strtolower($this->search) . '%'
+          )
         )
-        ->where('category_id',$this->category->id)
+        ->where('category_id', $this->category->id)
         ->where(
           'city',
           '=',
           $this->city
         )
         ->get();
-
-
     }
     return Profile::query()
       ->when(
         $this->search,
-        fn(Builder $q) => $q->where(
+        fn (Builder $q) => $q->where(
           DB::raw('lower(name)'),
           'like',
-          '%' . strtolower($this->search) . '%')
+          '%' . strtolower($this->search) . '%'
+        )
       )
-      ->where('category_id',$this->category->id)
+      ->where('category_id', $this->category->id)
       ->limit(4)
       ->get();
   }
 
-  #[NoReturn]
   public function getSearch(): void
   {
     $this->mount($this->category->id);

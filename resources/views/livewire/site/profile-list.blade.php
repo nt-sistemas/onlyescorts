@@ -70,4 +70,8 @@
         </div>
     </div>
 
+    @livewire('site.modal.story')
+
+
+
 </div>

@@ -17,4 +17,9 @@ class Stories extends Component
   {
     $this->stories = Profile::all()->random(10);
   }
+
+  public function openStoriesModal()
+  {
+    $this->dispatch('open-stories-modal');
+  }
 }

@@ -17,6 +17,7 @@
     "dependencies": {
         "jquery": "^3.7.1",
         "lightbox2": "^2.11.4",
+        "swiper": "^11.1.4",
         "tw-elements": "^1.1.0"
     }
 }

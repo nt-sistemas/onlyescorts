@@ -20,7 +20,7 @@
     "src": "resources/assets/images/_texture.svg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-_vkTYju3.css",
+    "file": "assets/app--ShftQl1.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -30,7 +30,10 @@
     "src": "resources/css/lightbox.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-p_jhmX-d.js",
+    "css": [
+      "assets/app-5jEJBDvx.css"
+    ],
+    "file": "assets/app-ica3ydpI.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
