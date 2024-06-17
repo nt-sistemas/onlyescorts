@@ -56,14 +56,6 @@
                                     <x-icon name="s-map-pin" label="{{ $row->city }}" />
                                     <x-icon name="s-globe-europe-africa" label="{{ $row->country }}" />
                                 </div>
-
-                                <div
-                                    class="flex flex-row items-center justify-center gap-8 p-2 rounded-tl-xl rounded-br-xl bg-primary lg:w-1/5">
-                                    <a href="#"><img src="{{ asset('assets/icons/whats.svg') }}"
-                                            class="w-6 h-6" /></a>
-                                    <a href="#"><img src="{{ asset('assets/icons/instagram.svg') }}"
-                                            class="w-6 h-6" /></a>
-                                </div>
                             </div>
 
                         </div>
