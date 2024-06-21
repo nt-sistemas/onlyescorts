@@ -1,5 +1,13 @@
 import "./bootstrap";
 
+/*
+import Alpine from "alpinejs";
+import intersect from "@alpinejs/intersect";
+window.Alpine = Alpine;
+
+Alpine.plugin(intersect);
+Alpine.start();*/
+
 // Initialization for ES Users
 lightbox.option({
   resizeDuration: 200,

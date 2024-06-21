@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class Story extends Component
 {
-  public $storiesModal = true;
+  public bool $storiesModal = true;
 
   public $stories = [];
   public function render()
@@ -20,8 +20,6 @@ class Story extends Component
 
   public function mount()
   {
-    $this->storiesModal = false;
-
     $profile = User::first();
 
 
@@ -32,5 +30,10 @@ class Story extends Component
   function openModal()
   {
     $this->storiesModal = true;
+  }
+
+  public function closeModal()
+  {
+    $this->storiesModal = false;
   }
 }

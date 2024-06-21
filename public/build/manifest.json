@@ -20,7 +20,7 @@
     "src": "resources/assets/images/_texture.svg"
   },
   "resources/css/app.css": {
-    "file": "assets/app--ShftQl1.css",
+    "file": "assets/app-rI4UFrGG.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -31,9 +31,9 @@
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-5jEJBDvx.css"
+      "assets/app-qRaPUE8U.css"
     ],
-    "file": "assets/app-ica3ydpI.js",
+    "file": "assets/app-z19Vt6nK.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

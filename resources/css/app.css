@@ -6,7 +6,6 @@
   .swiper {
     width: 100%;
     height: 100%;
-    position: absolute;
   }
 
   .site_body {
@@ -25,6 +24,7 @@
     column-count: 2;
     column-gap: 20px;
   }
+
   .destaque img {
     filter: grayscale(100%);
     cursor: pointer;
