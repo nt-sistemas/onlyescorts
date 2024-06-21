@@ -4,19 +4,18 @@
         <div class="">
             <div x-init="new Swiper($el, {
                 modules: [Navigation, Pagination, Autoplay],
-            
+
                 loop: true,
-            
+
                 autoplay: {
                     delay: 3000,
                 },
-            
+
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
-            
                 },
-            
+
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',

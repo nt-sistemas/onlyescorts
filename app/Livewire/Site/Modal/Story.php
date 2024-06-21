@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class Story extends Component
 {
-  public bool $storiesModal = true;
+  public bool $storiesModal = false;
 
   public $stories = [];
   public function render()
@@ -21,6 +21,7 @@ class Story extends Component
   public function mount()
   {
     $profile = User::first();
+    $this->storiesModal = false;
 
 
     $this->stories = Image::where('user_id', $profile->id)->get();
