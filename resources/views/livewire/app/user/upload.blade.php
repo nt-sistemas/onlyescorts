@@ -9,7 +9,7 @@
         @endif
         <form wire:submit.prevent="save" class="flex flex-col items-center w-full gap-8">
             <div class="w-full">
-                <input type="file" wire:model="files" class="w-full" />
+                <input type="file" wire:model="files" class="w-full" multiple />
                 @error('files.*')
                     <span class="error">{{ $message }}</span>
                 @enderror
