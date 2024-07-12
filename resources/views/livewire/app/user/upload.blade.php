@@ -9,13 +9,15 @@
         @endif
         <form wire:submit.prevent="save" class="flex flex-col items-center w-full gap-8">
             <div class="w-full">
-                <input type="file" wire:model.lazy="files" class="w-full" />
+                <input type="file" wire:model="files" class="w-full" />
                 @error('files.*')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>
 
-            <button class="btn btn-primary w-full" type="submit">Save photo</button>
+            <x-loading wire:loading wire:target="files" class="text-primary loading-lg" />
+
+            <button class="btn btn-primary w-full" type="submit" wire:loading.attr="disabled" wire:target="files">Save photo</button>
         </form>
     </div>
     <br><br>
