@@ -4,9 +4,12 @@ namespace App\Livewire\Site;
 
 use App\Models\Category;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 use Illuminate\View\View;
 use JetBrains\PhpStorm\NoReturn;
 use Livewire\Attributes\Computed;
@@ -41,6 +44,8 @@ class ProfileList extends Component
 
   public $profilesList = [];
 
+  public $slides = [];
+
   public function mount($category = null): void
   {
     $this->category = $category;
@@ -57,7 +62,25 @@ class ProfileList extends Component
       ->limit(20)
       ->get();
 
+
     $this->profilesList = $this->profiles();
+
+    $users = User::query()
+      ->where('online', true)
+      ->get();
+
+
+    foreach ($users as $user) {
+      if ($user->profile->category_id == $category) {
+
+        $this->slides[] = [
+          'title' => $user->profile->name,
+          'image' => URL::asset(Storage::url($user->profile->avatar)),
+          'urlText' => 'Ver perfil',
+          'url' => url('profile/' . $user->profile->slug)
+        ];
+      }
+    }
   }
 
 
@@ -112,7 +135,7 @@ class ProfileList extends Component
         )
       )
       ->where('category_id', $this->category->id)
-      ->limit(4)
+
       ->get();
   }
 

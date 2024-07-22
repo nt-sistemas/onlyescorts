@@ -23,6 +23,7 @@
             })" class="border swiper">
                 <!-- Additional required wrapper -->
                 <div x-cloak class="swiper-wrapper">
+
                     @foreach ($stories as $story)
                         <div class="static flex flex-col swiper-slide">
                             <x-button label="X"

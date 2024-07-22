@@ -27,7 +27,20 @@
         </div>
     </div>
 
-    <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-8 items-center">
+        @if (count($slides) > 0)
+            <div class="flex flex-col items-center mt-8 mb-8 bg-primary h-96 w-11/12 rounded-tl-3xl rounded-br-3xl">
+                <x-carousel :slides="$slides" class="h-[600px]">
+                    @scope('content', $slide)
+                        <div class="flex flex-col items-center w-full h-full bg-primary rounded-tl-3xl rounded-br-3xl">
+                            <p class="absolute text-white font-bold">{{ $slide['title'] }}</p>
+                            <img class="object-contain w-full h-full shadow-lg " src="{{ $slide['image'] }}"
+                                alt="logo" />
+                        </div>
+                    @endscope
+                </x-carousel>
+            </div>
+        @endif
 
         <div class="flex flex-col items-center w-full gap-4 lg:p-8">
             @php
@@ -54,7 +67,8 @@
                             </p>
                             <div class="flex flex-col justify-between gap-8 lg:flex-row">
                                 <div class="flex flex-col gap-4 lg:flex-row lg:gap-2">
-                                    <x-icon name="s-calendar" label="{{ \Carbon\Carbon::parse($row->birth)->age }} Years" />
+                                    <x-icon name="s-calendar"
+                                        label="{{ \Carbon\Carbon::parse($row->birth)->age }} Years" />
                                     <x-icon name="s-sparkles" label="{{ $row->gender }}" class="capitalize" />
                                     <x-icon name="s-map-pin" label="{{ $row->city }}" />
                                     <x-icon name="s-globe-europe-africa" label="{{ $row->country }}" />

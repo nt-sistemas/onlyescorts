@@ -61,8 +61,8 @@
                 @endif
 
                 <x-menu-item title="Home" icon="s-home-modern" link="{{ route('main') }}" />
-                <x-menu-item title="Stories" icon="s-film" link="#" />
                 <x-menu-item title="Profile" icon="s-user-circle" link="{{ route('profile') }}" />
+                <x-menu-item title="Stories" icon="s-film" link="{{ route('stories') }}" />
                 <x-menu-item title="Medias" icon="s-photo" link="{{ route('uploads') }}" />
 
             </x-menu>

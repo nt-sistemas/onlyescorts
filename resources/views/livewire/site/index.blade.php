@@ -20,6 +20,8 @@
 
         </div>
 
+        @livewire('site.stories')
+
     </main>
 
     <x-modal wire:model="myModal" title="Adult Content" separator>

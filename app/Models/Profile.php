@@ -8,13 +8,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Profile extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = [ 'name','about_me','avatar','slide','slug','phone','birth','city','gender','country'];
+  protected $fillable = ['name', 'about_me', 'avatar', 'slide', 'slug', 'phone', 'birth', 'city', 'gender', 'country'];
 
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
+
+  public function images()
+  {
+    return $this->hasMany(Image::class);
+  }
+
+  public function views()
+  {
+    return $this->hasMany(View::class);
+  }
 }

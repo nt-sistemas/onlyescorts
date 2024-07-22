@@ -3,6 +3,7 @@
 use App\Livewire\App\Brand;
 use App\Livewire\App\Main;
 use App\Livewire\App\User\Profile;
+use App\Livewire\App\User\Story;
 use App\Livewire\App\User\Upload;
 use App\Livewire\Auth\Login;
 use App\Livewire\Site\Index;
@@ -28,12 +29,13 @@ Route::get('/profile-list/{category}', ProfileList::class)->name('profile-list')
 Route::get('/profile/{slug}', \App\Livewire\Site\Profile::class)->name('site.profile');
 
 Route::get('/login', Login::class)->name('login');
-Route::get('/logout',function(){
-    Auth::logout();
+Route::get('/logout', function () {
+  Auth::logout();
 })->name('logout');
 
 Route::prefix('/app')->middleware('auth')->group(function () {
-    Route::get('/', Main::class)->name('main');
-    Route::get('/uploads', Upload::class)->name('uploads');
-    Route::get('/profile', Profile::class)->name('profile');
+  Route::get('/', Main::class)->name('main');
+  Route::get('/uploads', Upload::class)->name('uploads');
+  Route::get('/profile', Profile::class)->name('profile');
+  Route::get('/stories', Story::class)->name('stories');
 });
