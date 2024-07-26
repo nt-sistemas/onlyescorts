@@ -20,7 +20,8 @@
 
         </div>
 
-        @livewire('site.stories')
+        @livewire('site.onlines')
+
 
     </main>
 

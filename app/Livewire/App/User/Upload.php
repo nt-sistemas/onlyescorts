@@ -20,7 +20,8 @@ class Upload extends Component
   use WithFileUploads;
 
 
-  #[Validate(['files.*' => 'max:200000'])]
+
+  #[Validate('max:20000', message: 'O arquivo deve ser uma imagem ou vídeo')]
   public $files = [];
 
   public $media = [];
@@ -30,11 +31,13 @@ class Upload extends Component
   {
     $images = Image::query()->where('user_id', auth()->user()->id)->get();
 
+
     foreach ($images as $image) {
       $dados = [];
 
       $dados['id'] = $image->id;
       $dados['url'] = URL::asset(Storage::url($image->path));
+      $dados['extension'] = pathinfo($image->path, PATHINFO_EXTENSION);
       $this->media[] = $dados;
     }
   }
@@ -48,11 +51,7 @@ class Upload extends Component
   {
     $user = auth()->user();
 
-    $this->validate([
-      'files.*' => 'required|max:200000',
-    ]);
-
-
+    $this->validate();
 
     foreach ($this->files as $photo) {
       $user->images()->create(

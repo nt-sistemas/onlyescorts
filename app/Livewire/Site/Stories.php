@@ -21,7 +21,7 @@ class Stories extends Component
 
     $this->stories = Profile::query()
       ->whereIn('user_id', $users_id)
-      ->where('created_at', '<', Carbon::now()->subDay())
+      ->where('created_at', '<', Carbon::now())
       ->get();
   }
 
