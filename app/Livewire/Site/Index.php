@@ -27,7 +27,7 @@ class Index extends Component
   #[Computed()]
   public function mount()
   {
-    $acceptTerm = Cookie::get('accepted');
+    $acceptTerm = true;
 
     $this->myModal = !$acceptTerm;
 
