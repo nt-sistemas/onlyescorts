@@ -19,6 +19,7 @@
         "alpinejs": "^3.14.1",
         "jquery": "^3.7.1",
         "lightbox2": "^2.11.4",
+        "slug": "^9.1.0",
         "swiper": "^11.1.4",
         "tw-elements": "^1.1.0"
     }
