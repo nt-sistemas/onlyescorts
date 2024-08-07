@@ -9,11 +9,15 @@ services:
             dockerfile: Dockerfile
         image: ntsistemasw/onlyescorts-app
         restart: unless-stopped
+
         working_dir: /var/www/
         volumes:
             - ./:/var/www
+            - ./docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
         depends_on:
             - redis
+        extra_hosts:
+            - host.docker.internal:host-gateway
         networks:
             - only-escorts
 
@@ -23,10 +27,11 @@ services:
         image: nginx:alpine
         restart: unless-stopped
         ports:
-            - "8989:80"
+            - "8002:80"
         volumes:
             - ./:/var/www
             - ./docker/nginx/:/etc/nginx/conf.d/
+
         networks:
             - only-escorts
 
@@ -34,7 +39,9 @@ services:
     # queue
     queue:
         container_name: only-escorts-queue
-        image: ntsistemasw/onlyescorts-app
+        build:
+            context: .
+            dockerfile: Dockerfile
         restart: unless-stopped
         command: "php artisan queue:work"
         volumes:
