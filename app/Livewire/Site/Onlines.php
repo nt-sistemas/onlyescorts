@@ -10,11 +10,15 @@ class Onlines extends Component
 {
   public $profiles = [];
 
-  public function mount()
+  public function mount($category): void
   {
+
     $users = User::query()
-      ->select('id')
+      ->select('users.id')
+      ->leftJoin('profiles', 'profiles.user_id', '=', 'users.id')
+      ->where('users.status', 'active')
       ->where('online', true)
+      ->where('category_id', $category->id)
       ->get();
 
     $this->profiles = Profile::query()

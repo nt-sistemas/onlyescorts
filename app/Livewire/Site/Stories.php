@@ -20,8 +20,10 @@ class Stories extends Component
     $users_id = Story::query()->select('user_id')->groupBy('user_id')->get();
 
     $this->stories = Profile::query()
+      ->leftJoin('users', 'users.id', '=', 'profiles.user_id')
+      ->where('users.status', 'active')
       ->whereIn('user_id', $users_id)
-      ->where('created_at', '<', Carbon::now())
+      ->where('profiles.created_at', '<', Carbon::now())
       ->get();
   }
 

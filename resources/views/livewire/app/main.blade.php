@@ -1,14 +1,24 @@
 <div>
     <x-header :title="'Hello, ' . auth()->user()->name" size="text-3xl" separator />
-    <div class="w-full bg-gray-300 p-4 rounded-lg flex justify-between">
-        <h4 class="font-bold">Status</h4>
+    @if ($user['status'] == 'active')
+        <div class="w-full bg-gray-300 p-4 rounded-lg flex justify-between">
+            <h4 class="font-bold">Status</h4>
 
-        @if ($online)
-            <x-badge value="Online" class="badge-success font-bold text-white" wire:click="openModalOnline" />
-        @else
-            <x-badge value="Offline" class="bg-red-500 font-bold text-white" wire:click="openModalOnline" />
-        @endif
-    </div>
+
+            @if ($online)
+                <x-badge value="Online" class="badge-success font-bold text-white" wire:click="openModalOnline" />
+            @else
+                <x-badge value="Offline" class="bg-red-500 font-bold text-white" wire:click="openModalOnline" />
+            @endif
+
+        </div>
+    @else
+        <div class="w-full bg-primary/50 p-4 rounded-lg flex justify-center">
+            <span class="font-bold italic text-xl text-primary text-center">Your information is being validated by our
+                support, your
+                profile will soon be public</span>
+        </div>
+    @endif
 
 
     <h2 class="text-3xl text-primary font-sans mt-16 font-black">View Count</h2>

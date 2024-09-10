@@ -12,12 +12,18 @@ return new class extends Migration
   public function up(): void
   {
     Schema::table('users', function (Blueprint $table) {
-      $table->date('birth_date')->nullable();
+      $table->string('status')->default('validating');
+      //
     });
   }
 
   /**
    * Reverse the migrations.
    */
-  public function down(): void {}
+  public function down(): void
+  {
+    Schema::table('users', function (Blueprint $table) {
+      //
+    });
+  }
 };

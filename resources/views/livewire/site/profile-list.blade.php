@@ -33,7 +33,7 @@
                 <x-carousel :slides="$slides" class="h-[600px]">
                     @scope('content', $slide)
                         <div class="flex flex-col items-center w-full h-full bg-primary rounded-tl-3xl rounded-br-3xl">
-                            <p class="absolute text-white font-bold">{{ $slide['title'] }}</p>
+                            <p class="absolute text-secondary font-bold">{{ $slide['title'] }}</p>
                             <img class="object-contain w-full h-full shadow-lg " src="{{ $slide['image'] }}"
                                 alt="logo" />
                         </div>
@@ -42,11 +42,53 @@
             </div>
         @endif
 
+        @livewire('site.onlines', ['category' => $category])
+
         <div class="flex flex-col items-center w-full gap-4 lg:p-8">
             @php
                 $headers = [['key' => 'id', 'label' => '']];
             @endphp
-            <x-table class="w-full" :rows="$profilesList" :headers="$headers" no-headers>
+
+            <div class="flex flex-wrap gap-4 justify-center">
+                @foreach ($profilesList as $row)
+                    <div
+                        class="flex flex-row w-2/5 gap-4 p-2 shadow-lg bg-secondary rounded-tl-3xl rounded-br-3xl lg:p-4">
+                        <div class="w-3/4 lg:w-3/5 rounded-tl-3xl rounded-br-3xl bg-gray-600 ">
+                            <img class="flex flex-col object-top h-full w-full avatar rounded-tl-3xl rounded-br-3xl"
+                                src="{{ URL::asset(Storage::url($row->avatar)) }}" alt="logo"
+                                style="
+                      display: flex;
+                      width: 100%;
+                      height: 25vh;
+                      position: inherit;
+                      object-fit: cover;
+                  " />
+                        </div>
+                        <div class="flex flex-col w-3/4 gap-2 text-white">
+                            <a class="hover:text-primary link" wire:click="getProfile('{{ $row->slug }}')"><span
+                                    class="text-md font-bold lg:text-xl">{{ $row->name }}</span></a>
+                            <p class="hidden text-lg italic lg:block">
+                                {{ Str::limit($row->about_me, 100, $end = '...') }}
+                            </p>
+                            <div class="flex flex-col justify-between gap-8 lg:flex-row">
+                                <div class="flex flex-col gap-4 lg:flex-row lg:gap-2">
+                                    <x-icon name="s-calendar"
+                                        label="{{ \Carbon\Carbon::parse($row->birth)->age }} Years" />
+                                    <x-icon name="s-sparkles" label="{{ $row->gender }}" class="capitalize" />
+                                    <x-icon name="s-map-pin" label="{{ $row->city }}" />
+                                    <x-icon name="s-globe-europe-africa" label="{{ $row->country }}" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                @endforeach
+
+            </div>
+
+
+            <x-table class="w-full hidden" :rows="$profilesList" :headers="$headers" no-headers>
                 @scope('cell_id', $row)
                     <div class="flex flex-row w-full gap-4 p-2 shadow-lg bg-secondary rounded-tl-3xl rounded-br-3xl lg:p-4">
                         <div class="w-3/4 lg:w-1/4 rounded-tl-3xl rounded-br-3xl ">
@@ -83,6 +125,7 @@
 
         </div>
     </div>
+
 
     @livewire('site.modal.story')
 

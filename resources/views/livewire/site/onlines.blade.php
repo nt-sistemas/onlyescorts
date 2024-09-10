@@ -2,7 +2,7 @@
     @foreach ($profiles as $profile)
         <a href="{{ route('site.profile', $profile->slug) }}">
             <div class="avatar online">
-                <div class="w-36 rounded-full  shadow-xl">
+                <div class="w-16 rounded-full  shadow-xl">
                     <img src="{{ URL::asset(Storage::url($profile->avatar)) }}" />
                 </div>
             </div>

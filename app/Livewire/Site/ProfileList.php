@@ -55,7 +55,9 @@ class ProfileList extends Component
       ->where('id', $category)
       ->first();
 
-    $this->cities = Profile::select(['city', 'country', DB::raw('count(id) as profile')])
+    $this->cities = Profile::select(['city', 'country', DB::raw('count(profiles.id) as profile')])
+      ->leftJoin('users', 'users.id', '=', 'profiles.user_id')
+      ->where('users.status', 'active')
       ->where('category_id', $category)
       ->groupBy('city', 'country')
       ->orderBy('profile', 'DESC')
@@ -67,6 +69,7 @@ class ProfileList extends Component
 
     $users = User::query()
       ->where('online', true)
+      ->where('status', 'active')
       ->get();
 
 
@@ -111,31 +114,36 @@ class ProfileList extends Component
       return Profile::query()
         ->when(
           $this->search,
-          fn (Builder $q) => $q->where(
+          fn(Builder $q) => $q->where(
             DB::raw('lower(name)'),
             'like',
             '%' . strtolower($this->search) . '%'
           )
         )
+        ->leftJoin('users', 'users.id', '=', 'profiles.user_id')
+        ->where('users.status', 'active')
         ->where('category_id', $this->category->id)
         ->where(
           'city',
           '=',
           $this->city
         )
+        ->limit(20)
         ->get();
     }
     return Profile::query()
       ->when(
         $this->search,
-        fn (Builder $q) => $q->where(
+        fn(Builder $q) => $q->where(
           DB::raw('lower(name)'),
           'like',
           '%' . strtolower($this->search) . '%'
         )
       )
+      ->leftJoin('users', 'users.id', '=', 'profiles.user_id')
+      ->where('users.status', 'active')
       ->where('category_id', $this->category->id)
-
+      ->limit(20)
       ->get();
   }
 

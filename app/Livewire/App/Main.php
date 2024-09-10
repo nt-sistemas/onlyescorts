@@ -14,6 +14,8 @@ class Main extends Component
 
   public bool $online = false;
 
+  public $user;
+
   public $headers = [
     ['key' => 'ip', 'label' => 'IP'],
     ['key' => 'created_at', 'label' => 'Date'],
@@ -22,9 +24,17 @@ class Main extends Component
   public function mount(): void
   {
     $user = auth()->user();
+    $this->user = $user;
     $this->online = $user->online;
 
     $profile = Profile::query()->where('user_id', auth()->user()->id)->first();
+
+    if (!$profile) {
+      $profile = new Profile();
+      $profile->user_id = auth()->user()->id;
+      $profile->name = auth()->user()->name;
+      $profile->save();
+    }
 
     $this->views = ViewModel::query()->where("profile_id", $profile->id)->get();
   }

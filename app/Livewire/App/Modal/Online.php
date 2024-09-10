@@ -14,7 +14,8 @@ class Online extends Component
   {
     $user = auth()->user();
 
-    if (!$user->online) {
+    if (!$user->online && $user->status == 'active') {
+
       $this->onlineModal = true;
     }
   }

@@ -3,7 +3,7 @@
     <main class="flex flex-col items-center gap-12 p-8">
         <div class="flex flex-col items-center gap-2">
 
-            <img class="w-2/3" src="{{ asset('assets/images/logo.svg') }}" alt="logo" />
+            <img class="w-1/3" src="{{ asset('assets/images/logo.svg') }}" alt="logo" />
         </div>
 
         <div class="flex flex-col lg:flex-row w-full gap-8">
@@ -20,7 +20,7 @@
 
         </div>
 
-        @livewire('site.onlines')
+
 
 
     </main>

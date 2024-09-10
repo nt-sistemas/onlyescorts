@@ -48,6 +48,7 @@
         </div>
     </div>
 
+
     <div class="p-4 bg-white shadow-lg h-2/12 rounded-tl-3xl rounded-br-3xl">
         <p class="text-lg italic">{{ $profile->about_me }}</p>
     </div>
