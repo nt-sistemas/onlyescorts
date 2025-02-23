@@ -1,7 +1,7 @@
-<div class="flex flex-col items-center justify-center w-full h-screen bg-secondary">
+<div class="flex flex-col items-center justify-center w-full h-screen p-2 bg-secondary ">
     <x-toast />
     <div
-        class="flex flex-col items-center w-3/4 gap-4 p-8 bg-white shadow-xl h-2/4 lg:w-1/3 rounded-bl-3xl rounded-tr-3xl">
+        class="flex flex-col items-center w-full max-w-xl gap-4 p-8 bg-white shadow-xl h-2/4 lg:w-1/3 rounded-bl-3xl rounded-tr-3xl">
         <img class="w-24" src="{{ asset('assets/images/icon.svg') }}" />
         <span class="text-2xl font-bold">Restrict Access</span>
         <div class="flex flex-col w-full gap-4">

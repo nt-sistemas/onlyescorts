@@ -27,13 +27,13 @@
         </div>
     </div>
 
-    <div class="flex flex-col gap-8 items-center">
+    <div class="flex flex-col items-center gap-8">
         @if (count($slides) > 0)
-            <div class="flex flex-col items-center mt-8 mb-8 bg-primary h-96 w-11/12 rounded-tl-3xl rounded-br-3xl">
+            <div class="flex flex-col items-center w-11/12 mt-8 mb-8 bg-primary rounded-tl-3xl rounded-br-3xl">
                 <x-carousel :slides="$slides" class="h-[600px]">
                     @scope('content', $slide)
                         <div class="flex flex-col items-center w-full h-full bg-primary rounded-tl-3xl rounded-br-3xl">
-                            <p class="absolute text-secondary font-bold">{{ $slide['title'] }}</p>
+                            <p class="absolute font-bold text-secondary">{{ $slide['title'] }}</p>
                             <img class="object-contain w-full h-full shadow-lg " src="{{ $slide['image'] }}"
                                 alt="logo" />
                         </div>
@@ -49,12 +49,12 @@
                 $headers = [['key' => 'id', 'label' => '']];
             @endphp
 
-            <div class="flex flex-wrap gap-4 justify-center">
+            <div class="flex flex-wrap justify-center gap-4">
                 @foreach ($profilesList as $row)
                     <div
-                        class="flex flex-row w-2/5 gap-4 p-2 shadow-lg bg-secondary rounded-tl-3xl rounded-br-3xl lg:p-4">
-                        <div class="w-3/4 lg:w-3/5 rounded-tl-3xl rounded-br-3xl bg-gray-600 ">
-                            <img class="flex flex-col object-top h-full w-full avatar rounded-tl-3xl rounded-br-3xl"
+                        class="flex flex-row w-full gap-4 p-2 shadow-lg lg:w-2/5 bg-secondary rounded-tl-3xl rounded-br-3xl lg:p-4">
+                        <div class="w-1/4 bg-gray-600 lg:w-3/5 rounded-tl-3xl rounded-br-3xl ">
+                            <img class="flex flex-col object-top w-full h-full avatar rounded-tl-3xl rounded-br-3xl"
                                 src="{{ URL::asset(Storage::url($row->avatar)) }}" alt="logo"
                                 style="
                       display: flex;
@@ -66,7 +66,7 @@
                         </div>
                         <div class="flex flex-col w-3/4 gap-2 text-white">
                             <a class="hover:text-primary link" wire:click="getProfile('{{ $row->slug }}')"><span
-                                    class="text-md font-bold lg:text-xl">{{ $row->name }}</span></a>
+                                    class="text-2xl font-bold lg:text-xl">{{ $row->name }}</span></a>
                             <p class="hidden text-lg italic lg:block">
                                 {{ Str::limit($row->about_me, 100, $end = '...') }}
                             </p>
@@ -88,7 +88,7 @@
             </div>
 
 
-            <x-table class="w-full hidden" :rows="$profilesList" :headers="$headers" no-headers>
+            <x-table class="hidden w-full" :rows="$profilesList" :headers="$headers" no-headers>
                 @scope('cell_id', $row)
                     <div class="flex flex-row w-full gap-4 p-2 shadow-lg bg-secondary rounded-tl-3xl rounded-br-3xl lg:p-4">
                         <div class="w-3/4 lg:w-1/4 rounded-tl-3xl rounded-br-3xl ">

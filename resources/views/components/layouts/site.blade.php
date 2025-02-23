@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="min-h-screen min-w-[350px] font-sans antialiased site_body">
+<body class="min-h-screen min-w-[350px] font-sans antialiased site_body ">
     <header class="flex flex-row-reverse items-center h-16 gap-3 p-8 bg-secondary">
         <a href="{{ route('login') }}" wire:navigate>
             <span
@@ -29,7 +29,9 @@
             </span>
         </a>
     </header>
-    {{ $slot }}
+    <div>
+        {{ $slot }}
+    </div>
 
 
     <script src="{{ asset('dist/js/lightbox-plus-jquery.min.js') }}"></script>

@@ -13,14 +13,18 @@
 
 <body class="min-h-screen min-w-[350px] font-sans antialiased site_body">
     <header class="flex flex-row items-center h-16 gap-3 p-8 bg-secondary">
+        <div class="flex flex-row items-center gap-3 mx-auto max-w-7xl">
+            <a href="{{ route('site.home') }}" wire:navigate>
+                <span
+                    class="flex justify-center w-48 p-4 font-bold text-white hover:rounded-xl hover:bg-primary hover:text-secondary">
+                    Home </span>
+            </a>
+        </div>
 
-        <a href="{{ route('site.home') }}" wire:navigate>
-            <span
-                class="flex justify-center w-48 p-4 font-bold text-white hover:rounded-xl hover:bg-primary hover:text-secondary">
-                Home </span>
-        </a>
     </header>
-    {{ $slot }}
+    <div class="mx-auto max-w-7xl">
+        {{ $slot }}
+    </div>
 
     <script src="{{ asset('dist/js/lightbox-plus-jquery.min.js') }}"></script>
     <script src="{{ asset('dist/js/lightbox.js') }}"></script>
