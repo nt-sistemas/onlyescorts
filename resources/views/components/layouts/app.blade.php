@@ -18,10 +18,13 @@
             display: none
         }
     </style>
-    <!-- Include the Alpine library on your page -->
-    <script src="https://unpkg.com/alpinejs" defer></script>
     <!-- Include the TailwindCSS library on your page -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include the Alpine library on your page -->
+    <!--<script src="https://unpkg.com/alpinejs" defer></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    {{-- Swiper.js --}}
 
 
     {{-- Sortable.js --}}
